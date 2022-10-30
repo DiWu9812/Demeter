@@ -1,0 +1,28 @@
+<!--  This file is app/views/movies/index.html.erb -->
+<h2>All Recipes</h2>
+
+<form action="/recipes/search" method="POST">
+  <%= token_tag %>
+  <div class="form-group">
+    <input type="text"
+           class="form-control"
+           id="inputSearch" name="keywords" aria-describedby="search" placeholder="Enter keywords"
+           value="<%= @keyword %>"
+    >
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<%#  Part 2: Start here... %>
+
+<div class="d-flex flex-row flex-wrap justify-content-between">
+  <% @recipes.each do |recipe| %>
+    <div class="card my-4" style="width: 15rem;">
+      <img src="<%= recipe.image_url %>" class="card-img-top" alt="<%= recipe.name %>">
+      <div class="card-body">
+        <h5 class="card-title"><%= recipe.name %></h5>
+        <a href="/recipes/<%= recipe.id %>" class="">Details</a>
+      </div>
+    </div>
+  <% end %>
+</div>
