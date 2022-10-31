@@ -8,9 +8,9 @@
   </li>
 </ul>
 <h3>Ingredients:</h3>
-<div class="list-group">
-  <% @recipe.ingredients.each do |ingredient| %>
-    <a class="list-group-item list-group-item-action"><%= ingredient.name %></a>
+<div>
+  <% @ingredients.each do |ingredient| %>
+    <span class="badge rounded-pill bg-light text-dark"><%= ingredient['amount'] %> <%= ingredient['metric_unit'] %> of <%= ingredient['name'] %></span>
   <% end %>
 </div>
 <h3>Steps:</h3>

@@ -15,13 +15,20 @@
 
 <%#  Part 2: Start here... %>
 
-<div class="d-flex flex-row flex-wrap justify-content-between">
+<div class="d-flex flex-row flex-wrap justify-content-start">
   <% @recipes.each do |recipe| %>
-    <div class="card my-4" style="width: 15rem;">
-      <img src="<%= recipe.image_url %>" class="card-img-top" alt="<%= recipe.name %>">
+    <div class="card my-4 mr-4" style="width: 15rem;">
+      <img src="<%= recipe['image_url'] %>" class="card-img-top" alt="<%= recipe['name'] %>">
       <div class="card-body">
-        <h5 class="card-title"><%= recipe.name %></h5>
-        <a href="/recipes/<%= recipe.id %>" class="">Details</a>
+        <h5 class="card-title"><%= recipe['name'] %></h5>
+        <div>
+          <% recipe['ingredients'].each do |ingredient| %>
+            <span class="badge rounded-pill bg-light text-dark"><%= raw(ingredient) %></span>
+          <% end %>
+        </div>
+        <div class="mt-2">
+          <a href="/recipes/<%= recipe['id'] %>" class="">Details</a>
+        </div>
       </div>
     </div>
   <% end %>
