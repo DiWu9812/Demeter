@@ -22,8 +22,10 @@
       <div class="card-body">
         <h5 class="card-title"><%= recipe['name'] %></h5>
         <div>
-          <% recipe['ingredients'].each do |ingredient| %>
-            <span class="badge rounded-pill bg-light text-dark"><%= raw(ingredient) %></span>
+          <% if recipe['ingredients'] %>
+            <% recipe['ingredients'].each do |ingredient| %>
+              <span class="badge rounded-pill bg-light text-dark"><%= raw(ingredient) %></span>
+            <% end %>
           <% end %>
         </div>
         <div class="mt-2">
