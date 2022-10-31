@@ -14,6 +14,13 @@ CSV.foreach(ing_path, headers: true) do |row|
 end
 Ingredient.import(ingredients)
 
+reci_path = "#{Rails.root}/db/csv/recipe.csv"
+recipe = []
+CSV.foreach(reci_path, headers: true) do |row|
+	recipe << row.to_h
+end
+Recipe.import(recipe)
+
 reci_ing_path = "#{Rails.root}/db/csv/recipe_ingredient.csv"
 recipe_ingredients = []
 CSV.foreach(reci_ing_path, headers: true) do |row|
@@ -21,9 +28,4 @@ CSV.foreach(reci_ing_path, headers: true) do |row|
 end
 RecipeIngredient.import(recipe_ingredients)
 
-reci_path = "#{Rails.root}/db/csv/recipe.csv"
-recipe = []
-CSV.foreach(reci_path, headers: true) do |row|
-	recipe << row.to_h
-end
-Recipe.import(recipe)
+

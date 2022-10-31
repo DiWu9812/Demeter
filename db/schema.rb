@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20221027152548) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cuisines", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "cuisines", ["name"], name: "unique_cuisine", unique: true
+  add_index "cuisines", ["name"], name: "unique_cuisine", unique: true, using: :btree
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name",             null: false
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20221027152548) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "ingredients", ["name"], name: "unique_ingredient", unique: true
+  add_index "ingredients", ["name"], name: "unique_ingredient", unique: true, using: :btree
 
   create_table "recipe_ingredients", force: :cascade do |t|
     t.string   "unit"
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 20221027152548) do
     t.integer  "ingredient_id"
   end
 
-  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id", using: :btree
+  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name",       null: false
@@ -53,6 +56,9 @@ ActiveRecord::Schema.define(version: 20221027152548) do
     t.integer  "cuisine_id"
   end
 
-  add_index "recipes", ["cuisine_id"], name: "index_recipes_on_cuisine_id"
+  add_index "recipes", ["cuisine_id"], name: "index_recipes_on_cuisine_id", using: :btree
 
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipes", "cuisines"
 end
