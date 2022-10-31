@@ -7,7 +7,12 @@
     <%= @recipe.created_at.strftime("%B %d, %Y") %>
   </li>
 </ul>
-
+<h3>Ingredients:</h3>
+<div>
+  <% @ingredients.each do |ingredient| %>
+    <span class="badge rounded-pill bg-light text-dark"><%= ingredient['amount'] %> <%= ingredient['metric_unit'] %> of <%= ingredient['name'] %></span>
+  <% end %>
+</div>
 <h3>Steps:</h3>
 <p id="description">
   <%= raw(@recipe.steps) %>
