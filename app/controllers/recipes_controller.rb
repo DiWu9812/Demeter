@@ -3,7 +3,8 @@ require 'uri'
 class RecipesController < ApplicationController
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.joins(:ingredients).find(params[:id])
+    @recipe.ingredients.includes( :recipe_ingredients )
   end
 
   def index
