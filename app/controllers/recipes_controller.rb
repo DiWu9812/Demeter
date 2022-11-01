@@ -44,6 +44,7 @@ class RecipesController < ApplicationController
         end
       end
     end
+    puts("selected")
     @recipes = @selected.map { |comp| {
       "id" => comp.id,
       "image_url" => comp.image_url,
@@ -65,7 +66,7 @@ class RecipesController < ApplicationController
     } }
     puts(@recipes.inspect)
     @keyword = @query
-    # puts('321,', @keyword)
+    puts('321,', @keyword)
     render 'index'
   end
 
