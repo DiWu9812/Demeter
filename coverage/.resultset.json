@@ -1,0 +1,282 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          2,
+          2,
+          3,
+          2,
+          2,
+          null,
+          null,
+          null,
+          2,
+          null,
+          null,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          3,
+          3,
+          3,
+          1,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/cuisine.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1667402709
+  },
+  "Cucumber Features": {
+    "coverage": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          2,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/cuisine.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1667402758
+  }
+}
