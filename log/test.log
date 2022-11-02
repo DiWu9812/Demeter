@@ -6511,3 +6511,272 @@ Processing by RecipesController#search as HTML
   Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
 Completed 200 OK in 27ms (Views: 7.8ms | ActiveRecord: 1.5ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe1"], ["steps", "1 step"], ["image_url", "url 1"], ["created_at", "2022-10-28 13:46:59.000000"], ["updated_at", "2022-10-28 13:46:59.000000"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe2"], ["steps", "2 steps"], ["image_url", "url 2"], ["created_at", "2022-10-28 13:47:03.000000"], ["updated_at", "2022-10-28 13:47:03.000000"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe3"], ["steps", "3 steps"], ["image_url", "url 3"], ["created_at", "2022-10-28 13:47:09.000000"], ["updated_at", "2022-10-28 13:47:09.000000"], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe4"], ["steps", "4 steps"], ["image_url", "url 4"], ["created_at", "2022-10-28 13:47:27.000000"], ["updated_at", "2022-10-28 13:47:27.000000"], ["id", 4]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 1], ["name", "ingredient1"], ["calorie_per_gram", 100.0], ["created_at", "2022-11-02 19:33:04.302616"], ["updated_at", "2022-11-02 19:33:04.302616"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["name", "ingredient2"], ["calorie_per_gram", 200.0], ["created_at", "2022-11-02 19:33:04.305022"], ["updated_at", "2022-11-02 19:33:04.305022"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 3], ["name", "ingredient3"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.306706"], ["updated_at", "2022-11-02 19:33:04.306706"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 4], ["name", "ingredient4"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.308428"], ["updated_at", "2022-11-02 19:33:04.308428"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 1], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.318763"], ["updated_at", "2022-11-02 19:33:04.318763"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 2], ["created_at", "2022-11-02 19:33:04.322535"], ["updated_at", "2022-11-02 19:33:04.322535"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 3], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 2], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.324708"], ["updated_at", "2022-11-02 19:33:04.324708"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 4], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 3], ["ingredient_id", 3], ["created_at", "2022-11-02 19:33:04.326843"], ["updated_at", "2022-11-02 19:33:04.326843"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/recipes" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_flash.erb (3.2ms)
+Completed 200 OK in 180ms (Views: 179.1ms | ActiveRecord: 0.2ms)
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe1"], ["steps", "1 step"], ["image_url", "url 1"], ["created_at", "2022-10-28 13:46:59.000000"], ["updated_at", "2022-10-28 13:46:59.000000"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe2"], ["steps", "2 steps"], ["image_url", "url 2"], ["created_at", "2022-10-28 13:47:03.000000"], ["updated_at", "2022-10-28 13:47:03.000000"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe3"], ["steps", "3 steps"], ["image_url", "url 3"], ["created_at", "2022-10-28 13:47:09.000000"], ["updated_at", "2022-10-28 13:47:09.000000"], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe4"], ["steps", "4 steps"], ["image_url", "url 4"], ["created_at", "2022-10-28 13:47:27.000000"], ["updated_at", "2022-10-28 13:47:27.000000"], ["id", 4]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 1], ["name", "ingredient1"], ["calorie_per_gram", 100.0], ["created_at", "2022-11-02 19:33:04.539847"], ["updated_at", "2022-11-02 19:33:04.539847"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["name", "ingredient2"], ["calorie_per_gram", 200.0], ["created_at", "2022-11-02 19:33:04.541599"], ["updated_at", "2022-11-02 19:33:04.541599"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 3], ["name", "ingredient3"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.543268"], ["updated_at", "2022-11-02 19:33:04.543268"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 4], ["name", "ingredient4"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.544911"], ["updated_at", "2022-11-02 19:33:04.544911"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 1], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.546931"], ["updated_at", "2022-11-02 19:33:04.546931"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 2], ["created_at", "2022-11-02 19:33:04.549182"], ["updated_at", "2022-11-02 19:33:04.549182"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 3], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 2], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.551347"], ["updated_at", "2022-11-02 19:33:04.551347"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 4], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 3], ["ingredient_id", 3], ["created_at", "2022-11-02 19:33:04.553371"], ["updated_at", "2022-11-02 19:33:04.553371"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/recipes" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_flash.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = $1 LIMIT 1  [["name", "recipe1"]]
+Started GET "/recipes/1" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (1.6ms)[0m  [1mSELECT  "recipes".* FROM "recipes" INNER JOIN "recipe_ingredients" ON "recipe_ingredients"."recipe_id" = "recipes"."id" INNER JOIN "recipe_ingredients" "recipe_ingredients_recipes_join" ON "recipe_ingredients_recipes_join"."recipe_id" = "recipes"."id" INNER JOIN "ingredients" ON "ingredients"."id" = "recipe_ingredients_recipes_join"."ingredient_id" WHERE "recipes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRecipeIngredient Load (0.3ms)[0m  SELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.2ms)
+Completed 200 OK in 25ms (Views: 2.7ms | ActiveRecord: 2.4ms)
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = $1 LIMIT 1  [["name", "recipe1"]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe1"], ["steps", "1 step"], ["image_url", "url 1"], ["created_at", "2022-10-28 13:46:59.000000"], ["updated_at", "2022-10-28 13:46:59.000000"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe2"], ["steps", "2 steps"], ["image_url", "url 2"], ["created_at", "2022-10-28 13:47:03.000000"], ["updated_at", "2022-10-28 13:47:03.000000"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe3"], ["steps", "3 steps"], ["image_url", "url 3"], ["created_at", "2022-10-28 13:47:09.000000"], ["updated_at", "2022-10-28 13:47:09.000000"], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe4"], ["steps", "4 steps"], ["image_url", "url 4"], ["created_at", "2022-10-28 13:47:27.000000"], ["updated_at", "2022-10-28 13:47:27.000000"], ["id", 4]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 1], ["name", "ingredient1"], ["calorie_per_gram", 100.0], ["created_at", "2022-11-02 19:33:04.635103"], ["updated_at", "2022-11-02 19:33:04.635103"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["name", "ingredient2"], ["calorie_per_gram", 200.0], ["created_at", "2022-11-02 19:33:04.636809"], ["updated_at", "2022-11-02 19:33:04.636809"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 3], ["name", "ingredient3"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.638439"], ["updated_at", "2022-11-02 19:33:04.638439"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 4], ["name", "ingredient4"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.640065"], ["updated_at", "2022-11-02 19:33:04.640065"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 1], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.642509"], ["updated_at", "2022-11-02 19:33:04.642509"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 2], ["created_at", "2022-11-02 19:33:04.644697"], ["updated_at", "2022-11-02 19:33:04.644697"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 3], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 2], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.646747"], ["updated_at", "2022-11-02 19:33:04.646747"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 4], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 3], ["ingredient_id", 3], ["created_at", "2022-11-02 19:33:04.648777"], ["updated_at", "2022-11-02 19:33:04.648777"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/recipes" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_flash.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+Started POST "/recipes/search" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#search_index as HTML
+  Parameters: {"keywords"=>"ingredient1"}
+Redirected to http://www.example.com/recipes/search/ingredient1
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/recipes/search/ingredient1" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#search as HTML
+  Parameters: {"q"=>"ingredient1"}
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRecipeIngredient Load (0.4ms)[0m  [1mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" IN (1, 2, 3, 4)[0m
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 2, 3)
+  Rendered recipes/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_flash.erb (0.2ms)
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe1"], ["steps", "1 step"], ["image_url", "url 1"], ["created_at", "2022-10-28 13:46:59.000000"], ["updated_at", "2022-10-28 13:46:59.000000"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe2"], ["steps", "2 steps"], ["image_url", "url 2"], ["created_at", "2022-10-28 13:47:03.000000"], ["updated_at", "2022-10-28 13:47:03.000000"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "recipe3"], ["steps", "3 steps"], ["image_url", "url 3"], ["created_at", "2022-10-28 13:47:09.000000"], ["updated_at", "2022-10-28 13:47:09.000000"], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("name", "steps", "image_url", "created_at", "updated_at", "id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "recipe4"], ["steps", "4 steps"], ["image_url", "url 4"], ["created_at", "2022-10-28 13:47:27.000000"], ["updated_at", "2022-10-28 13:47:27.000000"], ["id", 4]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 1], ["name", "ingredient1"], ["calorie_per_gram", 100.0], ["created_at", "2022-11-02 19:33:04.730669"], ["updated_at", "2022-11-02 19:33:04.730669"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["name", "ingredient2"], ["calorie_per_gram", 200.0], ["created_at", "2022-11-02 19:33:04.732248"], ["updated_at", "2022-11-02 19:33:04.732248"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 3], ["name", "ingredient3"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.733760"], ["updated_at", "2022-11-02 19:33:04.733760"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 4], ["name", "ingredient4"], ["calorie_per_gram", 250.0], ["created_at", "2022-11-02 19:33:04.735265"], ["updated_at", "2022-11-02 19:33:04.735265"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 1], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.737283"], ["updated_at", "2022-11-02 19:33:04.737283"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 2], ["created_at", "2022-11-02 19:33:04.739338"], ["updated_at", "2022-11-02 19:33:04.739338"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 3], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 2], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:04.741406"], ["updated_at", "2022-11-02 19:33:04.741406"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 4], ["unit", "unit"], ["amount", 0.0], ["metric_unit", "metric_unit"], ["metric_amount", 0.0], ["recipe_id", 3], ["ingredient_id", 3], ["created_at", "2022-11-02 19:33:04.743379"], ["updated_at", "2022-11-02 19:33:04.743379"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/recipes" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_flash.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+Started POST "/recipes/search" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#search_index as HTML
+  Parameters: {"keywords"=>"ingredient1 ingredient2"}
+Redirected to http://www.example.com/recipes/search/ingredient1%20ingredient2
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/recipes/search/ingredient1%20ingredient2" for 127.0.0.1 at 2022-11-02 15:33:04 -0400
+Processing by RecipesController#search as HTML
+  Parameters: {"q"=>"ingredient1 ingredient2"}
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" IN (1, 2, 3, 4)[0m
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 2, 3)
+  Rendered recipes/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by RecipesController#search_index as HTML
+Redirected to http://test.host/recipes
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by RecipesController#search_index as HTML
+  Parameters: {"keywords"=>"milk"}
+Redirected to http://test.host/recipes/search/milk
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by RecipesController#search_index as HTML
+  Parameters: {"keywords"=>"milk almond"}
+Redirected to http://test.host/recipes/search/milk%20almond
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "recipes" ("id", "name", "steps", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["id", 1], ["name", "recipe1"], ["steps", "Fake step"], ["image_url", "Fake url"], ["created_at", "2022-11-02 19:33:16.916515"], ["updated_at", "2022-11-02 19:33:16.916515"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["name", "milk"], ["calorie_per_gram", 0.0], ["created_at", "2022-11-02 19:33:16.925508"], ["updated_at", "2022-11-02 19:33:16.925508"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ingredients" ("id", "name", "calorie_per_gram", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["id", 2], ["name", "almond"], ["calorie_per_gram", 0.0], ["created_at", "2022-11-02 19:33:16.927974"], ["updated_at", "2022-11-02 19:33:16.927974"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["unit", "Fake unit"], ["amount", 0.0], ["metric_unit", "Fake metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 1], ["created_at", "2022-11-02 19:33:16.937207"], ["updated_at", "2022-11-02 19:33:16.937207"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredients" ("id", "unit", "amount", "metric_unit", "metric_amount", "recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["id", 2], ["unit", "Fake unit"], ["amount", 0.0], ["metric_unit", "Fake metric_unit"], ["metric_amount", 0.0], ["recipe_id", 1], ["ingredient_id", 2], ["created_at", "2022-11-02 19:33:16.941012"], ["updated_at", "2022-11-02 19:33:16.941012"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RecipesController#search as HTML
+  Parameters: {"q"=>"milk almond"}
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRecipeIngredient Load (0.6ms)[0m  [1mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" IN (1)[0m
+  [1m[35mIngredient Load (0.5ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 2)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered recipes/index.html.erb within layouts/application (0.3ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 26ms (Views: 7.5ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
