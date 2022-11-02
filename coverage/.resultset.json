@@ -1,13 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/helpers/application_helper.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/controllers/recipes_controller.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
         "lines": [
           1,
           null,
@@ -94,7 +94,7 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/controllers/application_controller.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
@@ -103,7 +103,7 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/recipe.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe.rb": {
         "lines": [
           1,
           null,
@@ -113,36 +113,27 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/ingredient.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/recipe_ingredient.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
         "lines": [
           1,
           1,
           1,
           null
         ]
-      },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/cuisine.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1667411392
+    "timestamp": 1667416979
   },
   "Cucumber Features": {
     "coverage": {
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/recipe.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe.rb": {
         "lines": [
           1,
           null,
@@ -152,14 +143,14 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/ingredient.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/recipe_ingredient.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
         "lines": [
           1,
           1,
@@ -167,7 +158,7 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/controllers/recipes_controller.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
         "lines": [
           1,
           null,
@@ -254,7 +245,7 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/controllers/application_controller.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
@@ -263,22 +254,13 @@
           null
         ]
       },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/helpers/application_helper.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
-      },
-      "/Users/wudi/Desktop/Study material/SaaS/Demeter/app/models/cuisine.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1667410686
+    "timestamp": 1667416972
   }
 }
