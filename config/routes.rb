@@ -5,6 +5,6 @@ Rottenpotatoes::Application.routes.draw do
       get 'search/:q', :action => 'search', :as => 'search'
     end
   end
-  # map '/' to be a redirect to '/movies'
+  # map '/' to be a redirect to '/recipes'
   root :to => redirect('/recipes')
 end
