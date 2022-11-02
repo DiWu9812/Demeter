@@ -17,11 +17,15 @@ Feature: display table of recipes
       | id | name        | calorie_per_gram | created_at | updated_at |
       | 1  | ingredient1 | 100              | created_at | updated_at |
       | 2  | ingredient2 | 200              | created_at | updated_at |
+      | 3  | ingredient3 | 250              | created_at | updated_at |
+      | 4  | ingredient4 | 250              | created_at | updated_at |
 
     Given the following recipe_ingredients exist:
       | id | unit | amount | metric_unit |metric_amount|created_at|updated_at|recipe_id|ingredient_id|
       | 1  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  1      |1            |
       | 2  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  1      |2            |
+      | 3  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  2      |1            |
+      | 4  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  3      |3            |
 
 
 
@@ -37,3 +41,22 @@ Feature: display table of recipes
     And I should see "ingredient1"
     But I should not see "2 steps"
     And I should not see "ingredient3"
+
+  Scenario: find recipes with ingredient1
+    Given I am on the home page
+    And I fill in "keywords" with "ingredient1"
+    And I press "Search"
+    Then I should see "recipe1"
+    And I should see "recipe2"
+    And I should see "ingredient1"
+    And I should not see "ingredient2"
+    And I should not see "recipe3"
+
+  Scenario: find recipes with ingredient1 and ingredient2
+    Given I am on the home page
+    And I fill in "keywords" with "ingredient1 ingredient2"
+    And I press "Search"
+    Then I should see "recipe1"
+    And I should see "ingredient1"
+    And I should see "ingredient2"
+    And I should not see "recipe2"
