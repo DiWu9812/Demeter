@@ -16,19 +16,11 @@ ActiveRecord::Schema.define(version: 20221027152548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cuisines", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "cuisines", ["name"], name: "unique_cuisine", unique: true, using: :btree
-
   create_table "ingredients", force: :cascade do |t|
-    t.string   "name",             null: false
-    t.float    "calorie_per_gram"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "name",                null: false
+    t.float    "calorie_per_serving"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "ingredients", ["name"], name: "unique_ingredient", unique: true, using: :btree
@@ -53,12 +45,8 @@ ActiveRecord::Schema.define(version: 20221027152548) do
     t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "cuisine_id"
   end
-
-  add_index "recipes", ["cuisine_id"], name: "index_recipes_on_cuisine_id", using: :btree
 
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
-  add_foreign_key "recipes", "cuisines"
 end
