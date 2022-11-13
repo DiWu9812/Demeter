@@ -5,8 +5,14 @@ class UsersController < ApplicationController
 
   # sign up func
   def create
-    @user = User.create(params.require(:user).permit(:username, :password))
-    session[:user_id] = @user.id
-    redirect_to '/recipes'
+    @user = User.find_by(username: params[:user][:username])
+    if @user
+      puts "Duplicated username. Redirect to Signup"  
+      redirect_to '/signup'
+    else
+      @user = User.create(params.require(:user).permit(:username, :password))
+      session[:user_id] = @user.id
+      redirect_to '/recipes'
+    end
  end
 end
