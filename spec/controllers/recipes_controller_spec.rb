@@ -43,4 +43,23 @@ describe RecipesController do
             expect(assigns(:selected)).to eql([recipe1])
         end
     end
+
+    describe "index" do
+        it 'should render the index template' do
+          get :index
+          expect(response).to render_template('index')
+        end
+    end
+
+    describe "show" do
+        it 'should find the recipe' do
+          recipe = FactoryGirl.create(:recipe, :name => 'recipe', :id => '0', :origin_id => '0')
+          ingredient = FactoryGirl.create(:ingredient, :name => 'ingredient', :id => '0')
+          recipe_ingredient = FactoryGirl.create(:recipe_ingredient, :id => '0', :ingredient_id => '0', :recipe_id => '0')
+
+          get :show, id: recipe.id
+          expect(assigns(:recipe)).to eql(recipe)
+        end
+    end
+
 end

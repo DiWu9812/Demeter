@@ -7,14 +7,14 @@ Feature: display table of recipes
   Background: recipes in database
 
     Given the following recipes exist:
-      | name    | steps   | image_url | created_at              | updated_at              | cuisine_id| id |
-      | recipe1 | 1 step  | url 1     | 2022-10-28 13:46:59 UTC | 2022-10-28 13:46:59 UTC |           | 1  |
-      | recipe2 | 2 steps | url 2     | 2022-10-28 13:47:03 UTC | 2022-10-28 13:47:03 UTC |           | 2  |
-      | recipe3 | 3 steps | url 3     | 2022-10-28 13:47:09 UTC | 2022-10-28 13:47:09 UTC |           | 3  |
-      | recipe4 | 4 steps | url 4     | 2022-10-28 13:47:27 UTC | 2022-10-28 13:47:27 UTC |           | 4  |
+      | name    | steps   | image_url | created_at              | updated_at              | id | origin_id |
+      | recipe1 | 1 step  | url 1     | 2022-10-28 13:46:59 UTC | 2022-10-28 13:46:59 UTC | 1  |1          |
+      | recipe2 | 2 steps | url 2     | 2022-10-28 13:47:03 UTC | 2022-10-28 13:47:03 UTC | 2  |2          |
+      | recipe3 | 3 steps | url 3     | 2022-10-28 13:47:09 UTC | 2022-10-28 13:47:09 UTC | 3  |3          |
+      | recipe4 | 4 steps | url 4     | 2022-10-28 13:47:27 UTC | 2022-10-28 13:47:27 UTC | 4  |4          |
 
     Given the following ingredients exist:
-      | id | name        | calorie_per_gram | created_at | updated_at |
+      | id | name        | calorie_per_serving | created_at | updated_at |
       | 1  | ingredient1 | 100              | created_at | updated_at |
       | 2  | ingredient2 | 200              | created_at | updated_at |
       | 3  | ingredient3 | 250              | created_at | updated_at |
@@ -60,3 +60,9 @@ Feature: display table of recipes
     And I should see "ingredient1"
     And I should see "ingredient2"
     And I should not see "recipe2"
+
+  Scenario: search with empty search bar
+    Given I am on the home page
+    And I fill in "keywords" with ""
+    And I press "Search"
+    Then I am on the home page

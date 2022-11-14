@@ -12,12 +12,16 @@ RSpec.describe UsersController, type: :controller do
   # sign up
   describe "POST #create" do
     # when username is new
-    it "-----" do
+    it "should redirect to home page if successfully create" do
       post :create, {:user=>{:username=>"username", :password=>"[FILTERED]"}}
       expect(response).to redirect_to('/recipes')
     end
 
-    # TODO: when username is duplicated....should stay on "Sign up" page
+    it "should stay on the sign up page if user already exist" do
+       user = FactoryGirl.create(:user, :username => 'user1', :password_digest => 'password')
+       post :create, {:user=>{:username=>"user1", :password=>"[FILTERED]"}}
+       expect(response).to redirect_to('/signup')
+    end
   end
 
 end
