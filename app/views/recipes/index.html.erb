@@ -1,6 +1,13 @@
 <!--  This file is app/views/movies/index.html.erb -->
 <h2>All Recipes</h2>
 
+<% if logged? %>
+    <h4>Successfully Logged In, <%= valid_user.username %></h4>
+<%end%>
+<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Sign Up", '/users/new', method: :get%>
+<%= button_to "Log out", '/logout', method: :delete%>
+
 <form action="/recipes/search" method="POST">
   <%= token_tag %>
   <div class="form-group">
