@@ -27,38 +27,31 @@ require 'net/http'
 require 'openssl'
 
 def getCal(ingredient)
-	url = URI("https://api.nal.usda.gov/fdc/v1/foods/search?query="+ingredient+"&dataType=Foundation&pageSize=25&sortBy=dataType.keyword&sortOrder=asc&api_key=MXXHYWJlzta8ZXxFaePEEbCeKUuj2J9PsziEulzU")
+
+	url = URI("https://nutritionix-api.p.rapidapi.com/v1_1/search/"+URI.encode(ingredient)+"?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat")
 
 	http = Net::HTTP.new(url.host, url.port)
 	http.use_ssl = true
 	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
+	
 	request = Net::HTTP::Get.new(url)
-
+	request["X-RapidAPI-Key"] = 'f2e88f0a75msh7aaee86fe618995p1965d7jsn56e197a7a380'
+	request["X-RapidAPI-Host"] = 'nutritionix-api.p.rapidapi.com'
+	
 	response = http.request(request)
 	resp = JSON.parse(response.read_body)
+    # puts response.read_body
 
-	calorie = 0 #calorie per gram
-	calorie100 = -1
-	resp["foods"].each do |ingre|
-		ingre["foodNutrients"].each do |nutri|
-			if nutri["nutrientId"] == 1008
-				calorie100 = nutri["value"] #calorie per 100 gram
-				break
-			end
-		end
-		if calorie100>0
-			break
-		end
-	end
-	if calorie100>0
-		calorie = calorie100/10.0
+	calorie = 0 #calorie per serving
+	resp["hits"].each do |ingre|
+		calorie = ingre["fields"]["nf_calories"]
+        break
 	end
 
 	return calorie
 end
 
-file = File.read("#{Rails.root}/db/rawdata/recipes.json")
+file = File.read("#{Rails.root}/db/rawdata/recipes_1112.json")
 resp_json = JSON.parse(file)
 print "Recipe Number: "
 puts resp_json["recipes"].length()
@@ -70,7 +63,10 @@ resp_json["recipes"].each do |recipe|
 	if processed_recipe%10 == 0
 		puts "Processing the #{processed_recipe}th recipe"
 	end
-	recipe_entry = {:name => recipe["title"], :steps => recipe["instructions"], :image_url => recipe["image"]}
+	if Recipe.where(origin_id: recipe["id"]).first || recipe["instructions"].nil?
+		next
+	end
+	recipe_entry = {:name => recipe["title"], :steps => recipe["instructions"], :image_url => recipe["image"], :calories => recipe["calories"], :origin_id => recipe["id"]}
 	recipe_row = Recipe.create!(recipe_entry)
 	
 	recipe_id = recipe_row.id
@@ -83,7 +79,7 @@ resp_json["recipes"].each do |recipe|
 		
 		if !Ingredient.where(name: name).first
 			calorie = getCal(name)
-			ingredient_entry = {:name => name, :calorie_per_gram => calorie}
+			ingredient_entry = {:name => name, :calorie_per_serving => calorie}
 			ingredient_row = Ingredient.create!(ingredient_entry)
 		end
 		
