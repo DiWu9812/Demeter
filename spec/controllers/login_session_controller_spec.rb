@@ -8,18 +8,28 @@ RSpec.describe LoginSessionController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+# login...
+  describe "POST #create" do
+    # correct username and password
+    it "-----" do
+      # post :create, {"utf8"=>"✓", "xxx", "username"=>"wmj", "password"=>"123", "commit"=>"Login", "controller"=>"login_session", "action"=>"create"}
+      # expect(response).to redirect_to('/recipes')
+    end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+    # incorrect username and password
+    it "-----" do
+      # post :create, {"utf8"=>"✓", "xxx", "username"=>"wmj", "password"=>"123", "commit"=>"Login", "controller"=>"login_session", "action"=>"create"}
+      # expect(response).to redirect_to('/login')
     end
   end
 
-  describe "GET #login" do
-    it "returns http success" do
-      get :login
-      expect(response).to have_http_status(:success)
+
+# logout...
+  describe "DELETE #destroy" do
+    it "-----" do
+      # delete :destroy
+      # expect session[:user_id] not existed
+      # expect(response).to redirect_to('/recipes')
     end
   end
 

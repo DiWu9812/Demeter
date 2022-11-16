@@ -28,12 +28,13 @@
           null,
           null,
           1,
-          1,
-          1,
+          0,
+          0,
+          0,
           0,
           0,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -101,44 +102,44 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
           null,
           null,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null,
           null,
-          0,
+          2,
+          2,
+          3,
+          2,
+          2,
           null,
           null,
-          0,
+          null,
+          2,
           null,
           null,
-          0,
-          0,
-          0,
-          0,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           1,
@@ -164,8 +165,14 @@
           null,
           1,
           1,
+          1,
           0,
           0,
+          null,
+          1,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -187,27 +194,23 @@
           null
         ]
       },
-      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
         "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1668356698
+    "timestamp": 1668399712
   },
   "Cucumber Features": {
     "coverage": {
