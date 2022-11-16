@@ -7,6 +7,67 @@
           null
         ]
       },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/login_session_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/login_session_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
         "lines": [
           1,
@@ -94,11 +155,31 @@
           null
         ]
       },
-      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/users_controller.rb": {
         "lines": [
+          1,
+          1,
           1,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/user.rb": {
+        "lines": [
+          1,
           1,
           null
         ]
@@ -129,7 +210,7 @@
         ]
       }
     },
-    "timestamp": 1667417596
+    "timestamp": 1668399712
   },
   "Cucumber Features": {
     "coverage": {
@@ -143,124 +224,218 @@
           null
         ]
       },
-      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/jessicawang/Documents/SaaS/Demeter/app/models/recipe_ingredient.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          2,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          4,
-          4,
-          null,
-          null,
-          1,
-          2,
-          null,
-          2,
-          null,
-          3,
-          2,
-          2,
-          2,
-          8,
-          10,
-          9,
-          null,
-          null,
-          null,
-          2,
-          2,
-          3,
-          null,
-          null,
-          null,
-          5,
-          5,
-          6,
-          4,
-          4,
-          null,
-          null,
-          null,
-          4,
-          null,
-          null,
-          5,
-          null,
-          null,
-          2,
-          2,
-          2,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          2,
           0,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null
-        ]
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/ingredient.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/models/user.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/application_controller.rb": {
         "lines": [
-          1,
+          0,
           null,
           null,
-          1,
-          null
-        ]
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/recipes_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/controllers/login_session_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/users_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/login_session_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/Users/jessicawang/Documents/SaaS/Demeter/app/helpers/application_helper.rb": {
         "lines": [
-          1,
-          null
-        ]
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1667417584
+    "timestamp": 1668356738
   }
 }

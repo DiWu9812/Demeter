@@ -6,5 +6,6 @@ FactoryGirl.define do
     image_url 'Fake url'
     created_at 'Fake date'
     updated_at 'Fake date'
+    origin_id 'Fake origin id from API'
   end
 end

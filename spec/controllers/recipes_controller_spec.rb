@@ -23,7 +23,7 @@ describe RecipesController do
     describe "search" do
         it "return search result" do
             # Mock recipe
-            recipe1 = FactoryGirl.create(:recipe, :name => 'recipe1', :id => '1')
+            recipe1 = FactoryGirl.create(:recipe, :name => 'recipe1', :id => '1', :origin_id => '12345')
 
             # Mock ingredient
             ingredient1 = FactoryGirl.create(:ingredient, :name => 'milk', :id => '1')
