@@ -51,6 +51,49 @@ describe RecipesController do
         end
     end
 
+
+    describe "page" do
+        it 'should render the index template' do
+          recipe1 = FactoryGirl.create(:recipe, :name => 'recipe1', :id => '1', :origin_id => '12345')
+          get :page, {:id => 1}
+          expect(response).to render_template('index')
+        end
+    end
+
+
+    describe "favorite" do
+        it 'should render the index template' do
+          user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+          session[:return_to] = '/recipes/page/1'
+          session[:user_id] = 1
+          post :favorite, {:id => 1, :positive => "true"}
+          expect(response).to redirect_to('/recipes/page/1')
+        end
+
+        it 'should render the index template 2' do
+          user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+          session[:return_to] = '/recipes/page/1'
+          session[:user_id] = 1
+          post :favorite, {:id => 1, :positive => "false"}
+          expect(response).to redirect_to('/recipes/page/1')
+        end
+    end
+
+
+    describe "favorited" do
+        it 'should render the have_to_login template' do
+          get :favorited
+          expect(response).to render_template('have_to_login')
+        end
+        it 'should render the index template' do
+          user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+          session[:return_to] = '/recipes/page/1'
+          session[:user_id] = 1
+          get :favorited
+          expect(response).to render_template('index')
+        end
+    end
+
     describe "show" do
         it 'should find the recipe' do
           recipe = FactoryGirl.create(:recipe, :name => 'recipe', :id => '0', :origin_id => '0')
