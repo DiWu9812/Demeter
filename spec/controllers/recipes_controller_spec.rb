@@ -47,7 +47,7 @@ describe RecipesController do
     describe "index" do
         it 'should render the index template' do
           get :index
-          expect(response).to render_template('index')
+          expect(response).to redirect_to('/recipes/page/1')
         end
     end
 
