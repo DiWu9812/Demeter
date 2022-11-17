@@ -24,5 +24,5 @@ end
 
 When(/^I click the link for "([^"]*)"$/) do |name|
  id = Recipe.find_by(name: name)[:id]
- click_link(id)
+ find("a[href='/recipes/#{id}']").click
 end
