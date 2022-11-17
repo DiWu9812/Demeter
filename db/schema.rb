@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20221113185825) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "ingredients", force: :cascade do |t|
     t.string   "name",                null: false
     t.float    "calorie_per_serving"
@@ -23,7 +20,7 @@ ActiveRecord::Schema.define(version: 20221113185825) do
     t.datetime "updated_at",          null: false
   end
 
-  add_index "ingredients", ["name"], name: "unique_ingredient", unique: true, using: :btree
+  add_index "ingredients", ["name"], name: "unique_ingredient", unique: true
 
   create_table "recipe_ingredients", force: :cascade do |t|
     t.string   "unit"
@@ -36,8 +33,8 @@ ActiveRecord::Schema.define(version: 20221113185825) do
     t.integer  "ingredient_id"
   end
 
-  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id", using: :btree
-  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
+  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name",       null: false
@@ -49,14 +46,14 @@ ActiveRecord::Schema.define(version: 20221113185825) do
     t.integer  "calories"
   end
 
-  add_index "recipes", ["origin_id"], name: "unique_recipe", unique: true, using: :btree
+  add_index "recipes", ["origin_id"], name: "unique_recipe", unique: true
 
   create_table "saved_recipes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
   end
 
-  add_index "saved_recipes", ["user_id", "recipe_id"], name: "index_saved_recipes_on_user_id_and_recipe_id", unique: true, using: :btree
+  add_index "saved_recipes", ["user_id", "recipe_id"], name: "index_saved_recipes_on_user_id_and_recipe_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
@@ -65,10 +62,6 @@ ActiveRecord::Schema.define(version: 20221113185825) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "users", ["username"], name: "unique_username", unique: true, using: :btree
+  add_index "users", ["username"], name: "unique_username", unique: true
 
-  add_foreign_key "recipe_ingredients", "ingredients"
-  add_foreign_key "recipe_ingredients", "recipes"
-  add_foreign_key "saved_recipes", "recipes"
-  add_foreign_key "saved_recipes", "users"
 end

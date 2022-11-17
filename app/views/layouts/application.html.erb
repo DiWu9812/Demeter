@@ -1,24 +1,37 @@
 <%# Our "base" layout should be a valid HTML document. %>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Demeter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <%= stylesheet_link_tag 'application', 'media' => 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <%# These classes come from the Bootstrap CSS framework. %>
-    <nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
-      <h1 class="title"><a href="/" style="text-decoration: none; color: white">Demeter</a></h1>
-    </nav>
-    <div class="container">
-      <%# Render "flash" messages in our application. This loads _flash.erb %>
-      <%= render 'layouts/flash' %>
-      <main id="main">
-        <%= yield %>
-      </main>
-    </div>
-  </body>
+<head>
+  <title>Demeter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <%= stylesheet_link_tag 'application', 'media' => 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%# These classes come from the Bootstrap CSS framework. %>
+<nav class="navbar bg-dark text-white mb-3">
+  <a class="navbar-brand brand" href="/">
+    <img class="logo d-inline-block align-top" src="<%= image_path('logo.png') %>"/>
+    <h2 class="title" style="color: #f9ab0c">Demeter</h2>
+  </a>
+
+  <div class="navbar-end">
+    <% if logged? %>
+      <div style="font-size: 20px; color: #f9ab0c; margin-right: 16px">Hi, <%= valid_user.username %>!</div>
+      <a href="/logout" class="btn btn-danger my-2 my-sm-0">Logout</a>
+    <% else %>
+      <a href="/user/new" class="btn btn-success my-2 my-sm-0">Sign Up</a>
+      <a href="/login" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+    <%end%>
+  </div>
+</nav>
+<div class="container">
+  <%# Render "flash" messages in our application. This loads _flash.erb %>
+  <%= render 'layouts/flash' %>
+  <main id="main">
+    <%= yield %>
+  </main>
+</div>
+</body>
 </html>
