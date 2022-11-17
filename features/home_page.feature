@@ -123,8 +123,7 @@ Feature: display table of recipes
       | 4  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  3      |3            |
 
 
-
-  Scenario: display recipes at main page
+  Scenario: check recipes at main page and the splitting of page
     When I am on the home page
     Then I should see the recipes on page 1
 
@@ -206,3 +205,19 @@ Feature: display table of recipes
     And I fill in "keywords" with ""
     And I press "Search"
     Then I am on the home page
+
+  Scenario: jump to another page of recipes
+    Given I am on the home page
+    When  I follow "Next"
+    Then I am on the second page
+    And I should see "recipe13"
+    When  I follow "Previous"
+    Then I am on the home page
+    And I should see "recipe1"
+#    When I click the link for "2"
+#    Then I should see "recipe13"
+
+  Scenario: jump to another page of recipes
+    Given I am on the home page
+
+
