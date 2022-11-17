@@ -10,7 +10,7 @@
 </head>
 <body>
 <%# These classes come from the Bootstrap CSS framework. %>
-<nav class="navbar bg-dark text-white mb-3">
+<nav class="navbar bg-dark text-white mb-3 demeterNavBar">
   <a class="navbar-brand brand" href="/">
     <img class="logo d-inline-block align-top" src="<%= image_path('logo.png') %>"/>
     <h2 class="title" style="color: #f9ab0c">Demeter</h2>
@@ -19,6 +19,7 @@
   <div class="navbar-end">
     <% if logged? %>
       <div style="font-size: 20px; color: #f9ab0c; margin-right: 16px">Hi, <%= valid_user.username %>!</div>
+      <a href="/recipes/favorited" class="btn btn-success my-2 my-sm-0">Favorited Recipes</a>
       <a href="/logout" class="btn btn-danger my-2 my-sm-0">Logout</a>
     <% else %>
       <a href="/user/new" class="btn btn-success my-2 my-sm-0">Sign Up</a>
