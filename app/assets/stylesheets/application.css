@@ -34,3 +34,34 @@
 .navbar-end > * {
     margin-right: 6px;
 }
+
+.recipeName {
+    height: 48px;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.detail {
+    text-decoration: none;
+}
+
+.detail:hover {
+    text-decoration: none;
+}
+
+.actionRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.favoriteButton:focus {
+    outline: none;
+}
+
+.calTip {
+    background-color: #00203c;
+}

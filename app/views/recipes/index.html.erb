@@ -1,24 +1,34 @@
 <!--  This file is app/views/movies/index.html.erb -->
-<h2>All Recipes</h2>
+<h2><%= @summary %></h2>
 
-<form action="/recipes/search" method="POST">
-  <%= token_tag %>
-  <div class="form-group">
-    <input type="text"
-           class="form-control"
-           id="inputSearch" name="keywords" aria-describedby="search" placeholder="Enter keywords"
-           value="<%= @keyword %>"
-    >
-  </div>
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
+<% if !@hide_search %>
+  <form action="/recipes/search" method="POST">
+    <%= token_tag %>
+    <div class="form-group">
+      <input type="text"
+             class="form-control"
+             id="inputSearch" name="keywords" aria-describedby="search" placeholder="Enter keywords"
+             value="<%= @keyword %>"
+      >
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+<% end %>
 
+<% if !@recipes || @recipes.size == 0 %>
+  <h1>No results</h1>
+<% end %>
 <div class="d-flex flex-row flex-wrap justify-content-between">
   <% @recipes.each do |recipe| %>
     <div class="card my-4" style="width: 15rem;">
-      <img src="<%= recipe['image_url'] %>" class="card-img-top" alt="<%= recipe['name'] %>">
+      <div style="position: relative">
+        <img src="<%= recipe['image_url'] %>" class="card-img-top" alt="<%= recipe['name'] %>">
+        <div class="badge badge-secondary calTip" style="position: absolute; right: 8px; bottom: 8px">
+          <%= recipe['calories'] %>kcal
+        </div>
+      </div>
       <div class="card-body">
-        <h5 class="card-title"><%= recipe['name'] %></h5>
+        <h5 class="card-title recipeName"><%= recipe['name'] %></h5>
         <div>
           <% if recipe['ingredients'] %>
             <% recipe['ingredients'].each do |ingredient| %>
@@ -26,19 +36,30 @@
             <% end %>
           <% end %>
         </div>
-        <div class="mt-2">
-          <a href="/recipes/<%= recipe['id'] %>" class="" id="<%= recipe['id'] %>">Details</a>
+        <div class="mt-2 actionRow">
+          <a href="/recipes/<%= recipe['id'] %>" class="mr-2 detail" id="<%= recipe['id'] %>">Details</a>
+          <% if @user %>
+            <form method="post" action="/recipes/favorite">
+              <%= token_tag %>
+              <input id="id" name="id" type="hidden" value="<%= recipe['id'] %> %>>"/>
+              <input id="positive" name="positive" type="hidden" value="<%= !recipe['favorited'] %>"/>
+              <button type="submit" style="border: 0" class="favoriteButton">
+                <img style="height: 30px; width: 30px" src="<%= recipe['favorited'] ? image_path('bookmark-star-fill.svg') : image_path('bookmark-star.svg') %>" />
+              </button>
+            </form>
+          <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
 <% if @pages %>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <% @pages.each do |page| %>
-      <li class="page-item <%= page['disabled'] ? "disabled" : "" %> <%= page['active'] ? "active" : "" %>"><a class="page-link" href="<%= page['link'] %>"><%= page['text'] %></a></li>
-    <% end %>
-  </ul>
-</nav>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <% @pages.each do |page| %>
+        <li class="page-item <%= page['disabled'] ? "disabled" : "" %> <%= page['active'] ? "active" : "" %>">
+          <a class="page-link" href="<%= page['link'] %>"><%= page['text'] %></a></li>
+      <% end %>
+    </ul>
+  </nav>
 <% end %>
