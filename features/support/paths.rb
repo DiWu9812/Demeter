@@ -27,6 +27,10 @@ module NavigationHelpers
 
     when /^ the login page$/ then '/login'
 
+    when /^the favorited page$/ then '/recipes/favorited'
+
+    when /^the (\d+)th page$/ then "/recipes/page/#{$1}"
+
     else
       begin
         page_name =~ /^the (.*) page$/
