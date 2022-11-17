@@ -42,9 +42,9 @@
             <form method="post" action="/recipes/favorite">
               <%= token_tag %>
               <input id="id" name="id" type="hidden" value="<%= recipe['id'] %> %>>"/>
-              <input id="positive" name="positive" type="hidden" value="<%= !recipe['favorited'] %>"/>
+              <input id="positive" name="positive" type="hidden" value="<%= !(recipe['favorited'] || recipe.favorited) %>"/>
               <button type="submit" style="border: 0" class="favoriteButton">
-                <img style="height: 30px; width: 30px" src="<%= recipe['favorited'] ? image_path('bookmark-star-fill.svg') : image_path('bookmark-star.svg') %>" />
+                <img style="height: 30px; width: 30px" src="<%= (recipe['favorited'] || recipe.favorited) ? image_path('bookmark-star-fill.svg') : image_path('bookmark-star.svg') %>" />
               </button>
             </form>
           <% end %>
