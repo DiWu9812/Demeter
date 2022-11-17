@@ -18,11 +18,11 @@
 <% if !@recipes || @recipes.size == 0 %>
   <h1>No results</h1>
 <% end %>
-<div class="d-flex flex-row flex-wrap justify-content-between">
+<div class="recipeList">
   <% @recipes.each do |recipe| %>
-    <div class="card my-4" style="width: 15rem;">
+    <div class="card" style="width: 15rem;">
       <div style="position: relative">
-        <img src="<%= recipe['image_url'] %>" class="card-img-top" alt="<%= recipe['name'] %>">
+        <img src="<%= recipe['image_url'] || image_path('placeholder.jpeg') %>" class="card-img-top" alt="<%= recipe['name'] %>">
         <div class="badge badge-secondary calTip" style="position: absolute; right: 8px; bottom: 8px">
           <%= recipe['calories'] %>kcal
         </div>
@@ -42,9 +42,9 @@
             <form method="post" action="/recipes/favorite">
               <%= token_tag %>
               <input id="id" name="id" type="hidden" value="<%= recipe['id'] %> %>>"/>
-              <input id="positive" name="positive" type="hidden" value="<%= !(recipe['favorited'] || recipe.favorited) %>"/>
+              <input id="positive" name="positive" type="hidden" value="<%= !(recipe['favorited'].nil? ? recipe.favorited : recipe['favorited']) %>"/>
               <button type="submit" style="border: 0" class="favoriteButton">
-                <img style="height: 30px; width: 30px" src="<%= (recipe['favorited'] || recipe.favorited) ? image_path('bookmark-star-fill.svg') : image_path('bookmark-star.svg') %>" />
+                <img style="height: 30px; width: 30px" src="<%= (recipe['favorited'].nil? ? recipe.favorited : recipe['favorited']) ? image_path('bookmark-star-fill.svg') : image_path('bookmark-star.svg') %>" />
               </button>
             </form>
           <% end %>
@@ -54,7 +54,7 @@
   <% end %>
 </div>
 <% if @pages %>
-  <nav aria-label="Page navigation example">
+  <nav class="paginationBar">
     <ul class="pagination">
       <% @pages.each do |page| %>
         <li class="page-item <%= page['disabled'] ? "disabled" : "" %> <%= page['active'] ? "active" : "" %>">

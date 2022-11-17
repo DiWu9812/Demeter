@@ -138,6 +138,7 @@ class RecipesController < ApplicationController
   end
 
   def search
+    session[:return_to] = request.original_url
     @query = params['q']
 
     @user = valid_user

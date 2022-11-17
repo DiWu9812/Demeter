@@ -23,6 +23,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .navbar-end {
@@ -64,4 +66,33 @@
 
 .calTip {
     background-color: #00203c;
+}
+
+.recipeList {
+    display: grid; /* 1 */
+    grid-template-columns: repeat(auto-fill, 250px); /* 2 */
+    grid-gap: 24px; /* 3 */
+    justify-content: space-between; /* 4 */
+
+    padding-top: 16px;
+    padding-bottom: 24px;
+}
+
+.paginationBar {
+    padding-bottom: 16px;
+}
+
+.bg-light {
+    background-color: #e8e8e8 !important;
+    padding: 5px;
+}
+
+.section {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.demeterNavBar {
+    padding-top: 0;
+    padding-bottom: 0;
 }
