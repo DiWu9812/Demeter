@@ -31,11 +31,21 @@ class RecipesController < ApplicationController
   end
 
   def page
+    session[:return_to] = request.original_url
     pageId = params['id'].to_i
     @recipes = Recipe.offset((pageId - 1) * $pageSize).limit($pageSize)
+
+    @user = valid_user
+    if @user
+      @recipes.each do |recipe|
+        recipe.favorited = SavedRecipe.where(user_id: valid_user.id, recipe_id: recipe.id).count > 0
+      end
+    end
     count = Recipe.all.count
+
     pageCount = count % $pageSize == 0 ? count / $pageSize : (count / $pageSize) + 1
 
+    @summary = "Page #{pageId} of #{pageCount} for all recipes"
 
     pageSet = Set[]
     pageSet.add(1)
@@ -88,15 +98,53 @@ class RecipesController < ApplicationController
   end
 
   def favorite
+    @user = valid_user
+    if @user
+      id = params['id'].to_i
+      positive = params['positive']
+      if positive == "true"
+        begin
+          savedRecipe = SavedRecipe.new(:user_id => @user.id, :recipe_id => id)
+          savedRecipe.save
+        rescue
+        end
+      elsif positive == "false"
+        begin
+          SavedRecipe.where(user_id: @user.id, recipe_id: id).destroy_all
+        rescue
+        end
+      end
+    end
+    redirect_to session.delete(:return_to)
+  end
+
+  def favorited
+
+    @user = valid_user
+    if !@user
+      render 'have_to_login'
+    else
+      @summary = "Favorited recipes for #{@user.username}"
+      session[:return_to] = request.original_url
+      favorited = SavedRecipe.where(user_id: @user.id)
+      @hide_search = true
+      @recipes = favorited.map do |relation|
+        recipe = Recipe.where(id: relation.recipe_id)[0]
+        recipe.favorited = true
+        recipe
+      end
+      render 'index'
+    end
   end
 
   def search
     @query = params['q']
 
+    @user = valid_user
     @keywords = @query
                   .split(' ')
                   .reject { |c| c.empty? }
-    puts(@keywords)
+    @summary = "Search results for \"#{@query}\""
     @all = Recipe.includes(:ingredients).all
     @selected = @all.select do |recipe|
       @keywords.all? do |kw|
@@ -110,6 +158,8 @@ class RecipesController < ApplicationController
       "id" => comp.id,
       "image_url" => comp.image_url,
       "name" => comp.name,
+      "calories" => comp.calories,
+      "favorited" => @user ? SavedRecipe.where(user_id: @user.id, recipe_id: comp.id).count > 0 : nil,
       "ingredients" => comp.ingredients.map do |ingredient|
         result = ""
         @keywords.each do |kw|
@@ -125,6 +175,7 @@ class RecipesController < ApplicationController
         result
       end
     } }
+    @recipes = @recipes.sort { |a, b| a['calories'] <=> b['calories'] }
     puts(@recipes.inspect)
     @keyword = @query
     puts('321,', @keyword)
