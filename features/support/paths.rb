@@ -23,9 +23,11 @@ module NavigationHelpers
 
     when /^the details page for "(.*)"$/ then recipe_path(Recipe.find_by(name: $1)[:id])
 
+    when /^the second page$/ then '/recipes/page/2'
+
     when /^the sign up page$/ then '/users/new'
 
-    when /^ the login page$/ then '/login'
+    when /^the login page$/ then '/login'
 
     else
       begin
