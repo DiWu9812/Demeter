@@ -8,3 +8,6 @@
 ./log/
 ./tmp/
 ./vendor/bundle
+.idea
+.DS_Store
+tmp

@@ -1,13 +1,6 @@
 <!--  This file is app/views/movies/index.html.erb -->
 <h2>All Recipes</h2>
 
-<% if logged? %>
-    <h4>Successfully Logged In, <%= valid_user.username %></h4>
-<%end%>
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
-<%= button_to "Log out", '/logout', method: :delete%>
-
 <form action="/recipes/search" method="POST">
   <%= token_tag %>
   <div class="form-group">
@@ -20,11 +13,9 @@
   <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
-<%#  Part 2: Start here... %>
-
-<div class="d-flex flex-row flex-wrap justify-content-start">
+<div class="d-flex flex-row flex-wrap justify-content-between">
   <% @recipes.each do |recipe| %>
-    <div class="card my-4 mr-4" style="width: 15rem;">
+    <div class="card my-4" style="width: 15rem;">
       <img src="<%= recipe['image_url'] %>" class="card-img-top" alt="<%= recipe['name'] %>">
       <div class="card-body">
         <h5 class="card-title"><%= recipe['name'] %></h5>
@@ -42,3 +33,12 @@
     </div>
   <% end %>
 </div>
+<% if @pages %>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <% @pages.each do |page| %>
+      <li class="page-item <%= page['disabled'] ? "disabled" : "" %> <%= page['active'] ? "active" : "" %>"><a class="page-link" href="<%= page['link'] %>"><%= page['text'] %></a></li>
+    <% end %>
+  </ul>
+</nav>
+<% end %>

@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.6.6'
+ruby '~> 2.6.6'
 gem 'rails', '4.2.10'
 
-# for Heroku deployment 
 group :development, :test do
-  gem 'sqlite3', '1.3.11'
+  gem 'sqlite3', '~> 1.3', '< 1.4'
   gem 'pg','~> 0.15'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
@@ -21,6 +20,8 @@ group :test do
   gem 'simplecov', :require => false
   gem 'factory_girl_rails', '~> 4.7'
 end
+
+# for Heroku deployment
 group :production do
   gem 'pg','~> 0.15'
 end

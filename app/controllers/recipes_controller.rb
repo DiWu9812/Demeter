@@ -5,6 +5,8 @@ def trim(num)
   i == f ? i : f
 end
 
+$pageSize = 12
+
 class RecipesController < ApplicationController
 
   def show
@@ -25,8 +27,67 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
+    redirect_to "/recipes/page/1"
+  end
+
+  def page
+    pageId = params['id'].to_i
+    @recipes = Recipe.offset((pageId - 1) * $pageSize).limit($pageSize)
+    count = Recipe.all.count
+    pageCount = count % $pageSize == 0 ? count / $pageSize : (count / $pageSize) + 1
+
+
+    pageSet = Set[]
+    pageSet.add(1)
+    if 2 <= pageCount
+      pageSet.add(2)
+    end
+    if 1 <= pageId - 1
+      pageSet.add(pageId - 1)
+    end
+    pageSet.add(pageId)
+    if pageId + 1 <= pageCount
+      pageSet.add(pageId + 1)
+    end
+    if pageCount - 1 >= 1
+      pageSet.add(pageCount - 1)
+    end
+    pageSet.add(pageCount)
+
+    @pages = []
+    @pages.append({
+      "text" => "Previous",
+      "link" => pageId == 1 ? nil : "/recipes/page/#{pageId - 1}",
+      "disabled" => pageId == 1
+    })
+
+    pageArray = pageSet.to_a.sort
+    for index in 0 ... pageArray.size
+      @pages.append({
+        "text" => "#{pageArray[index]}",
+        "link" => "/recipes/page/#{pageArray[index]}",
+        "active" => pageId == pageArray[index]
+      })
+      if index != pageArray.size - 1 and pageArray[index] + 1 < pageArray[index + 1]
+        @pages.append({
+          "text" => "...",
+          "disabled" => true
+        })
+      end
+    end
+
+    @pages.append({
+      "text" => "Next",
+      "link" => pageId == pageCount ? nil : "/recipes/page/#{pageId + 1}",
+      "disabled" => pageId == pageCount
+    })
+    # @pages
     @keyword = ''
+    @paginated = true
+    render 'index'
+  end
+
+  def favorite
   end
 
   def search
