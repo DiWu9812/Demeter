@@ -9,7 +9,7 @@ Feature: Able to sign up or sign in
 
     Given the following users exist:
       | username | password_digest                                                        | created_at | updated_at |
-#      | user1    | $2a$12$1oYVNYIZa8G3LiX7neySPuTyw0tFI6.xJ1kozb3os95tRAGZ7Xybe           | created_at | updated_at |
+      | user1    | $2a$12$1oYVNYIZa8G3LiX7neySPuTyw0tFI6.xJ1kozb3os95tRAGZ7Xybe           | created_at | updated_at |
 
 
   Scenario: sign up if new user
@@ -65,3 +65,42 @@ Feature: Able to sign up or sign in
     And I should see "Hi, user3!"
     Then I follow "Logout"
     Then I should not see "Hi, user3!"
+
+  Scenario: user can successfully login
+    When I am on the home page
+    And I follow "Sign Up"
+    And I should see "Username"
+    And I should see "Password"
+    When I fill in "Username" with "user4"
+    When I fill in "Password" with "1234567"
+    And I press "Create User"
+    Then I am on the home page
+    And I should see "Hi, user4!"
+    Then I follow "Logout"
+    Then I should not see "Hi, user4!"
+    And I follow "Login"
+    Then I am on the login page
+    And I fill in "Username" with "user4"
+    And I fill in "Password" with "1234567"
+    And I press "Login"
+    Then I am on the home page
+    And I should see "Hi, user4!"
+
+  Scenario: user can fail to login with wrong password
+    When I am on the home page
+    And I follow "Sign Up"
+    And I should see "Username"
+    And I should see "Password"
+    When I fill in "Username" with "user4"
+    When I fill in "Password" with "1234567"
+    And I press "Create User"
+    Then I am on the home page
+    And I should see "Hi, user4!"
+    Then I follow "Logout"
+    Then I should not see "Hi, user4!"
+    And I follow "Login"
+    Then I am on the login page
+    And I fill in "Username" with "user4"
+    And I fill in "Password" with "12345678"
+    And I press "Login"
+    Then I am on the login page

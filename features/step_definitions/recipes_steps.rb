@@ -16,13 +16,18 @@ Given /the following recipe_ingredients exist/ do |recipe_ingredients_table|
  end
 end
 
-Then /I should see a table of recipes/ do
- Recipe.all.each do |recipe|
+Then /I should see the recipes on page (\d+)/ do |id|
+ Recipe.offset((id.to_i - 1) * 12).limit(12).each do |recipe|
    step %{I should see "#{recipe.name}"}
  end
 end
 
 When(/^I click the link for "([^"]*)"$/) do |name|
+  id = Recipe.find_by(name: name)[:id]
+  find("a[href='/recipes/#{id}']").click
+end
+
+When(/^I click the favorite for "([^"]*)"$/) do |name|
  id = Recipe.find_by(name: name)[:id]
- find("a[href='/recipes/#{id}']").click
+ find("a[href='/recipes/#{id}'] ~ form > button").click
 end
