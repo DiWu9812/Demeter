@@ -96,3 +96,7 @@
     padding-top: 0;
     padding-bottom: 0;
 }
+
+.favoriteButton {
+    background-color: transparent;
+}
