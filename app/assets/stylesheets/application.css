@@ -100,3 +100,9 @@
 .favoriteButton {
     background-color: transparent;
 }
+
+.hint {
+    font-weight: normal;
+    color: #777;
+    font-size: .85em;
+}
