@@ -1,10 +1,20 @@
 <h1>User Login</h1>
+<% flash.each do |type, msgs| %>
+  <div class="alert alert-danger">
+    <h5>Oops! There are something wrong happen:</h5>
+    <ul>
+      <% msgs.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
    <%= form_tag '/login' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "Login"%>
+   <%= label_tag :username%><br>
+   <%= text_field_tag :username %><br>
+   <%= label_tag :password%><br>
+   <%= password_field_tag :password%><br>
+   <%= submit_tag "Login", class: "btn btn-primary"%>
    
    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
 <%end%>

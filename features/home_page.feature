@@ -134,6 +134,7 @@ Feature: display table of recipes
     And I should see "Password"
     When I fill in "Username" with "user4"
     When I fill in "Password" with "1234567"
+    When I fill in "Password Confirmation" with "1234567"
     And I press "Create User"
     Then I am on the home page
     When I am on the 4th page
@@ -146,6 +147,7 @@ Feature: display table of recipes
     And I should see "Password"
     When I fill in "Username" with "user4"
     When I fill in "Password" with "1234567"
+    When I fill in "Password Confirmation" with "1234567"
     And I press "Create User"
     Then I am on the home page
     When I am on the favorited page
@@ -158,6 +160,7 @@ Feature: display table of recipes
     And I should see "Password"
     When I fill in "Username" with "user5"
     When I fill in "Password" with "12345678"
+    When I fill in "Password Confirmation" with "12345678"
     And I press "Create User"
     Then I am on the home page
     When I click the favorite for "recipe1"
