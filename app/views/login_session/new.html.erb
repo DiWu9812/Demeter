@@ -1,4 +1,3 @@
-<h1>User Login</h1>
 <% flash.each do |type, msgs| %>
   <div class="alert alert-danger">
     <h5>Oops! There are something wrong happen:</h5>
@@ -9,12 +8,15 @@
     </ul>
   </div>
 <% end %>
-   <%= form_tag '/login' do %>
-   <%= label_tag :username%><br>
-   <%= text_field_tag :username %><br>
-   <%= label_tag :password%><br>
-   <%= password_field_tag :password%><br>
-   <%= submit_tag "Login", class: "btn btn-primary"%>
-   
-   <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-<%end%>
+<div class="userContainer">
+<h1>User Login</h1>
+  <hr>
+  <%= form_tag '/login' do %>
+    <%= label_tag :username, nil, class: "userLabel"%><br>
+    <%= text_field_tag :username, nil,  class: "userTextbox"%><br>
+    <%= label_tag :password, nil,  class: "userLabel"%><br>
+    <%= password_field_tag :password, nil,  class: "userTextbox"%><br>
+    <%= submit_tag "Login", class: "btn-success submit"%>
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  <%end%>
+</div>
