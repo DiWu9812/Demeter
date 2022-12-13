@@ -38,4 +38,4 @@ https://demeter-all-you-can-cook.herokuapp.com/
 https://github.com/DiWu9812/Demeter
 
 # DB Schema
-<img src = "public/images/db-iter2v2.png">
+<img src = "public/images/db-launch.png">
