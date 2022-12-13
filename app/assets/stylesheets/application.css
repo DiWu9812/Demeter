@@ -137,3 +137,83 @@
     margin: 0 15px 0 0;
     font-size: 20px;
 }
+
+.addbutton-fixed {
+    position: fixed;
+    top: 650px;
+    right: 40px;
+    background-color: #0275d8;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.recipeCreateFont{
+    font-size: 25px;
+}
+
+.hide{
+    display: none
+}
+
+.ingredientForm{
+    margin: 5px 0 5px 0;
+}
+
+.newRecipeContainer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.recipeTextbox {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+.ingTextbox {
+    width: 25%;
+    padding: 15px;
+    margin: 5px 0 5px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+.removeNewFormation{
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.addNewFormation{
+    background-color: #0275d8;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 30px;
+    margin: 5px 0 22px 0;
+}
+
+.addNewFormation:hover
+{   
+    text-decoration: none;
+    color: white;
+}
+
+.detailImg{
+    width: 600px;
+    height: auto;
+}

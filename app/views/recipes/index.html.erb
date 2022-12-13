@@ -7,7 +7,7 @@
     <div class="form-group">
       <input type="text"
              class="form-control"
-             id="inputSearch" name="keywords" aria-describedby="search" placeholder="Enter keywords"
+             id="inputSearch" name="keywords" aria-describedby="search" placeholder="Enter ingredient keywords"
              value="<%= @keyword %>"
       >
     </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="mt-2 actionRow">
           <a href="/recipes/<%= recipe['id'] %>" class="mr-2 detail" id="<%= recipe['id'] %>">Details</a>
-          <% if @user %>
+          <% if @user && @favorited%>
             <form method="post" action="/recipes/favorite">
               <%= token_tag %>
               <input id="id" name="id" type="hidden" value="<%= recipe['id'] %> %>>"/>
@@ -53,6 +53,14 @@
     </div>
   <% end %>
 </div>
+
+<% if @user %>
+  <a href="/recipes/create" class="btn btn-primary addbutton-fixed">
+    <img style="height: 30px; width: 30px" src="<%= image_path('write-pencil.png')%>" />
+    <span>&nbsp; New</span>
+  </a>
+<% end %>
+
 <% if @pages %>
   <nav class="paginationBar">
     <ul class="pagination">

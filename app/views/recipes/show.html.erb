@@ -4,7 +4,7 @@
   <h2>Details about <em><%= @recipe.name %></em></h2>
 </div>
 <div class="section">
-  <img src="<%= @recipe.image_url %>" class="img-fluid" alt="Responsive image">
+  <img src="<%= @recipe.image_url || image_path('placeholder.jpeg') %>" class="img-fluid detailImg" alt="Responsive image">
 </div>
 <div id="details" class="section">
   Released on:
