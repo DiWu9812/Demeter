@@ -214,4 +214,59 @@ describe RecipesController do
         end
     end
 
+    describe "create" do
+      it 'should yield warning when recipe have empty fields' do
+        user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+        session[:user_id] = 1
+        flash_msg = ["Recipe has no name. ", "Recipe has no steps. ", "Ingredient name or amount is empty. "]
+        get :create, {:recipe=>{:name=>"", :steps=>""}, :name=>[""], :amount=>["1"], :metric_unit=>["cup"]}
+        expect(response).to redirect_to('/recipes/create')
+        expect(flash[:alert]).to eql(flash_msg)
+      end
+
+      it 'should yield warning when recipe missing key components' do
+        user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+        session[:user_id] = 1
+        flash_msg = ["Recipe has no name. ", "Recipe has no steps. ", "Recipe has no Ingredient. "]
+        get :create, {:recipe=>{:name=>"", :steps=>""}, :name=>nil, :amount=>nil, :metric_unit=>nil}
+        expect(response).to redirect_to('/recipes/create')
+        expect(flash[:alert]).to eql(flash_msg)
+      end
+
+      it 'should return to homepage when successfully create recipe' do
+        user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+        session[:user_id] = 1
+        get :create, {:recipe=>{:name=>"recipe1", :steps=>"step1 step2 step3"}, :name=>["apple"], :amount=>["2"], :metric_unit=>[""]}
+        expect(response).to redirect_to('/recipes/page/1')
+        expect(flash[:notice]).to eql("Yay! Your recipe has been created successfully!")
+      end
+
+      it 'should search in DB for calories information when ingredient has already existed in DB' do
+        user1 = FactoryGirl.create(:user, :username => 'user1', :password_digest => '123')
+        session[:user_id] = 1
+        ingredient = FactoryGirl.create(:ingredient, :name => 'apple', :id => '0', :calorie_per_serving => 70)
+        get :create, {:recipe=>{:name=>"recipe1", :steps=>"step1 step2 step3"}, :name=>["sugar","apple"], :amount=>["1","2"], :metric_unit=>["tsp",""]}
+        expect(response).to redirect_to('/recipes/page/1')
+        expect(flash[:notice]).to eql("Yay! Your recipe has been created successfully!")
+      end
+    end
+
+    describe "created" do
+      it 'should render the have_to_login template' do
+        get :created
+        expect(response).to render_template('have_to_login')
+      end
+      it 'should render the index template' do
+        recipe1 = FactoryGirl.create(:recipe, :name => 'recipe1', :id => '1', :origin_id => '12345')
+        user1 = FactoryGirl.create(:user, :username => 'userx', :password_digest => '123456')
+
+        session[:return_to] = '/recipes/page/1'
+        session[:user_id] = 1
+        get :create, {:recipe=>{:name=>"recipe1", :steps=>"step1 step2 step3"}, :name=>["sugar","apple"], :amount=>["1","2"], :metric_unit=>["tsp",""]}
+        get :created
+        expect(response).to render_template('index')
+
+      end
+    end
+
 end
