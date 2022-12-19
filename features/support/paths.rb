@@ -33,6 +33,9 @@ module NavigationHelpers
 
     when /^the (\d+)th page$/ then "/recipes/page/#{$1}"
 
+    when /^the created recipe page$/ then '/recipes/created'
+
+
     else
       begin
         page_name =~ /^the (.*) page$/

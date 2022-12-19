@@ -223,10 +223,10 @@ class RecipesController < ApplicationController
     end
   end
 
-  def new
-    @recipe = Recipe.new
-    @recipe.recipe_ingredients.build 
-  end
+#   def new
+#     @recipe = Recipe.new
+#     @recipe.recipe_ingredients.build
+#   end
 
   def create
     @user = valid_user

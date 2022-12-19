@@ -2,7 +2,7 @@
   <%= text_field_tag 'name[]', nil, placeholder: 'Ingredient (Required)', class: 'ingTextbox' %>&nbsp;
   <%= text_field_tag 'amount[]', nil, placeholder: 'Amount (Required)', class: 'ingTextbox' %>&nbsp;
   <%= text_field_tag 'metric_unit[]', nil, placeholder: 'Unit (Optional)', class: 'ingTextbox' %>&nbsp;
-  <button class="removeNewFormation" type="button">
+  <button id="delIng" class="removeNewFormation" type="button">
     <img style="height: 20px; width: 20px" src="<%= image_path('cross.svg')%>" />
   </button>
 </div>
