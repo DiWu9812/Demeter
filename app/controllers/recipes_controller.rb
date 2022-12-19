@@ -52,6 +52,7 @@ class RecipesController < ApplicationController
     @recipe.recipe_ingredients.each do |amount|
       amounts[amount.ingredient_id] = amount
     end
+    @recipe.steps = @recipe.steps.scan(/[^\.!?]+[\.!?]/).map(&:strip).map{|s| "<li>#{s}</li>"}.join
     @ingredients = @recipe.ingredients.map { |ingredient| {
       "name" => ingredient.name,
       "amount" => trim(amounts[ingredient.id].amount),
