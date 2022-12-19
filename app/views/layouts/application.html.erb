@@ -20,7 +20,7 @@
     <% if logged? %>
       <div style="font-size: 20px; color: #f9ab0c; margin-right: 16px">Hi, <%= valid_user.username %>!</div>
       <a href="/recipes/created" class="btn btn-success my-2 my-sm-0">Created Recipes</a>
-      <a href="" class="btn btn-success my-2 my-sm-0">Favorited Recipes</a>
+      <a href="/recipes/favorited" class="btn btn-success my-2 my-sm-0">Favorited Recipes</a>
       <a href="/logout" class="btn btn-danger my-2 my-sm-0">Logout</a>
     <% else %>
       <a href="/users/new" class="btn btn-success my-2 my-sm-0">Sign Up</a>
