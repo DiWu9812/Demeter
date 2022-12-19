@@ -37,7 +37,15 @@ end
 class RecipesController < ApplicationController
 
   def show
+    session[:return_to] = request.original_url
     @recipe = Recipe.joins(:recipe_ingredients, :ingredients).find(params[:id])
+    recipe_count = RecipeVote.where(recipe_id: @recipe.id)[0]
+    @up_count = 0
+    @down_count = 0
+    unless recipe_count.nil?
+      @up_count = recipe_count.upvotes
+      @down_count = recipe_count.downvotes
+    end
     # @recipe.ingredients.includes( :recipe_ingredients )
     @ingredients = @recipe.ingredients
     amounts = Hash.new
@@ -143,6 +151,30 @@ class RecipesController < ApplicationController
         rescue
         end
       end
+    end
+    redirect_to session.delete(:return_to)
+  end
+
+  def upvote
+    id = params['id'].to_i
+    recipe_count = RecipeVote.where(recipe_id: id)[0]
+    if recipe_count.nil?
+      RecipeVote.create(upvotes: 1, downvotes: 0, recipe_id: id)
+    else
+      recipe_count.upvotes += 1
+      recipe_count.save
+    end
+    redirect_to session.delete(:return_to)
+  end
+
+  def downvote
+    id = params['id'].to_i
+    recipe_count = RecipeVote.where(recipe_id: id)[0]
+    if recipe_count.nil?
+      RecipeVote.create(upvotes: 0, downvotes: 1, recipe_id: id)
+    else
+      recipe_count.downvotes += 1
+      recipe_count.save
     end
     redirect_to session.delete(:return_to)
   end

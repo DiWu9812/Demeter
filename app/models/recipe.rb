@@ -6,4 +6,5 @@ class Recipe < ActiveRecord::Base
     belongs_to :cuisine
     has_many :recipe_ingredients
     has_many :ingredients, through: :recipe_ingredients
+    has_one :recipe_vote
 end

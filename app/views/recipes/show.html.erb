@@ -3,6 +3,28 @@
 <div class="section">
   <h2>Details about <em><%= @recipe.name %></em></h2>
 </div>
+<div class="section voteSection">
+  <div class="voteCountGroup upGroup">
+    <form method="post" action="/recipes/upvote">
+      <%= token_tag %>
+      <input id="id" name="id" type="hidden" value="<%= @recipe.id %> %>>"/>
+      <button type="submit" style="border: 0" class="voteButton">
+        <img style="height: 30px; width: 30px" src="<%= image_path('hand-thumbs-up.svg') %>" />
+      </button>
+    </form>
+    <div class="voteCount"><%= @up_count %></div>
+  </div>
+  <div class="voteCountGroup downGroup">
+    <form method="post" action="/recipes/downvote">
+      <%= token_tag %>
+      <input id="id" name="id" type="hidden" value="<%= @recipe.id %> %>>"/>
+      <button type="submit" style="border: 0" class="voteButton">
+        <img style="height: 30px; width: 30px" src="<%= image_path('hand-thumbs-down.svg') %>" />
+      </button>
+    </form>
+    <div class="voteCount"><%= @down_count %></div>
+  </div>
+</div>
 <div class="section">
   <img src="<%= @recipe.image_url || image_path('placeholder.jpeg') %>" class="img-fluid detailImg" alt="Responsive image">
 </div>

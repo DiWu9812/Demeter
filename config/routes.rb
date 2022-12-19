@@ -15,6 +15,8 @@ Rottenpotatoes::Application.routes.draw do
       get :favorited, :action => 'favorited', :as => 'favorited'
       get 'create', :action => 'create', :as => 'create'
       get 'created', :action => 'created', :as => 'created'
+      post :upvote, :action => 'upvote', :as => 'upvote'
+      post :downvote, :action => 'downvote', :as => 'downvote'
     end
   end
   # map '/' to be a redirect to '/recipes'
