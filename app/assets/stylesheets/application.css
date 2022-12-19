@@ -108,7 +108,7 @@
 }
 
 
-.submit{
+.submit {
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -126,14 +126,15 @@
     display: inline-block;
     border: none;
     background: #f1f1f1;
-  }
+}
 
 .userContainer {
     width: 50%;
     margin: 0 auto;
     padding: 16px;
 }
-.userLabel{
+
+.userLabel {
     margin: 0 15px 0 0;
     font-size: 20px;
 }
@@ -152,15 +153,15 @@
     border-radius: 30px;
 }
 
-.recipeCreateFont{
+.recipeCreateFont {
     font-size: 25px;
 }
 
-.hide{
+.hide {
     display: none
 }
 
-.ingredientForm{
+.ingredientForm {
     margin: 5px 0 5px 0;
 }
 
@@ -177,7 +178,7 @@
     display: inline-block;
     border: none;
     background: #f1f1f1;
-  }
+}
 
 .ingTextbox {
     width: 25%;
@@ -188,7 +189,7 @@
     background: #f1f1f1;
 }
 
-.removeNewFormation{
+.removeNewFormation {
     border: none;
     background: none;
     cursor: pointer;
@@ -196,7 +197,7 @@
     padding: 0;
 }
 
-.addNewFormation{
+.addNewFormation {
     background-color: #0275d8;
     border: none;
     color: white;
@@ -207,13 +208,45 @@
     margin: 5px 0 22px 0;
 }
 
-.addNewFormation:hover
-{   
+.addNewFormation:hover {
     text-decoration: none;
     color: white;
 }
 
-.detailImg{
+.detailImg {
     width: 600px;
     height: auto;
+}
+
+.voteCountGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 16px;
+}
+
+.upGroup {
+    color: #28a745;
+}
+
+.downGroup {
+    color: #dc3545;
+}
+
+.voteSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 0;
+}
+
+.voteButton:focus {
+    outline: none;
+}
+
+.voteButton {
+    background: transparent;
+    padding-left: 0;
 }
