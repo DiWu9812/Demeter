@@ -13,3 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+    $("#addNewIng").click(function(){
+      $("#recipeSet").append($("#new_ingredient_form").html());
+    });
+    $("div#recipeSet").on('click', '.removeNewFormation', function(){
+        $(this).closest('.ingredientForm').remove();
+    });
+  });
+
+$(document).ready(function() {
+    var step_text = $("#steps");
+    var counter     = $("#counter");
+    var max_length  = counter.data("maximum-length");
+
+    step_text.keyup(function() {
+        counter.text(max_length - $(this).val().length);
+    });
+});

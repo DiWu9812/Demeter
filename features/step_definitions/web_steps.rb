@@ -31,6 +31,22 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+When /^(?:|I )fill in the (\d+)(?:st|nd|rd|th) Ingredient with "([^"]*)"$/ do |num, value|
+  find(:xpath, ".//form/div[2]/div[#{num}]/input[1]").set(value)
+end
+
+When /^(?:|I )fill in the (\d+)(?:st|nd|rd|th) Amount with "([^"]*)"$/ do |num, value|
+  find(:xpath, ".//form/div[2]/div[#{num}]/input[2]").set(value)
+end
+
+When /^(?:|I )fill in the (\d+)(?:st|nd|rd|th) Unit with "([^"]*)"$/ do |num, value|
+  find(:xpath, ".//form/div[2]/div[#{num}]/input[3]").set(value)
+end
+
+Then("I hit the {int}st remove button") do |int|
+  driver.find_elements(:xpath, ".//form/div[2]/div[#{int}]/button[@id='delIng']").click
+end
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }

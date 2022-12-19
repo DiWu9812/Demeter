@@ -28,4 +28,6 @@ CSV.foreach(reci_ing_path, headers: true) do |row|
 end
 RecipeIngredient.import(recipe_ingredients)
 
-
+Recipe.find_each do |recipe|
+	RecipeVote.create(:recipe_id => recipe.id)
+end

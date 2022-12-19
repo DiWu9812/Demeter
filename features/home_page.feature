@@ -4,7 +4,7 @@ Feature: display table of recipes
   So that I can find recipes even I do not have anything in mind
   I want to see some popular recipes when I enter the app
 
-  Background: recipes in database
+  Background: recipes and users in database
 
     Given the following recipes exist:
       | name    | steps   | image_url | created_at              | updated_at              | id | origin_id |
@@ -122,7 +122,6 @@ Feature: display table of recipes
       | 3  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  2      |1            |
       | 4  | unit | amount | metric_unit |metric_amount|created_at|updated_at|  3      |3            |
 
-
   Scenario: check recipes at main page and the splitting of page
     When I am on the home page
     Then I should see the recipes on page 1
@@ -171,6 +170,84 @@ Feature: display table of recipes
     When I click the favorite for "recipe1"
     Then I am on the home page
 
+  Scenario: fail to see create recipes when didn't login
+    When I am on the created recipe page
+    Then I should see "You have to login or sign up to view this page"
+
+  Scenario: fail to create a recipe of user due to missing recipe name, steps, ingredient name or amount
+    When I am on the home page
+    And I follow "Sign Up"
+    And I should see "Username"
+    And I should see "Password"
+    When I fill in "Username" with "user6"
+    When I fill in "Password" with "1234567"
+    When I fill in "Password Confirmation" with "1234567"
+    And I press "Create User"
+    Then I am on the home page
+    When I am on the created recipe page
+    And I should see "Recipes created by user6"
+    Then I follow "New"
+    Then I should see "Have Ideas? Create Your Own Recipe Here!"
+    And I press "Submit"
+    And I should see "Oops! There are something wrong happen:"
+    And I should see "Recipe has no name."
+    And I should see "Recipe has no steps."
+    And I should see "Ingredient name or amount is empty."
+
+  Scenario: fail to create a recipe of user due to no ingredient
+    When I am on the home page
+    And I follow "Sign Up"
+    And I should see "Username"
+    And I should see "Password"
+    When I fill in "Username" with "user7"
+    When I fill in "Password" with "1234567"
+    When I fill in "Password Confirmation" with "1234567"
+    And I press "Create User"
+    Then I am on the home page
+    When I am on the created recipe page
+    And I should see "Recipes created by user7"
+    Then I follow "New"
+    Then I hit the 1st remove button
+    And I press "Submit"
+    And I should see "Recipe has no Ingredient."
+
+
+  Scenario: create and display recipes of user
+    When I am on the home page
+    And I follow "Sign Up"
+    And I should see "Username"
+    And I should see "Password"
+    When I fill in "Username" with "user8"
+    When I fill in "Password" with "1234567"
+    When I fill in "Password Confirmation" with "1234567"
+    And I press "Create User"
+    Then I am on the home page
+    When I am on the created recipe page
+    And I should see "Recipes created by user8"
+    Then I follow "New"
+    Then I should see "Have Ideas? Create Your Own Recipe Here!"
+    And I fill in "Name" with "My Recipe"
+    And I fill in the 1st Ingredient with "water"
+    And I fill in the 1st Amount with "1"
+    And I fill in the 1st Unit with "50ml"
+    And I fill in "steps" with "1234567"
+    And I press "Submit"
+    And I should see "Yay! Your recipe has been created successfully!"
+    When I am on the created recipe page
+    Then I follow "New"
+    And I fill in "Name" with "My Recipe 2"
+    And I fill in the 1st Ingredient with "water"
+    And I fill in the 1st Amount with "2"
+    And I fill in the 1st Unit with "50ml"
+    And I fill in "steps" with "12345678"
+    And I press "Submit"
+    And I should see "Yay! Your recipe has been created successfully!"
+    When I am on the created recipe page
+    And I should see "My Recipe"
+    And I should see "My Recipe 2"
+
+
+
   Scenario: display the favorited pages for no user
     When I am on the favorited page
     And I should see "You have to login or sign up to view this page"
@@ -217,8 +294,6 @@ Feature: display table of recipes
     When  I follow "Previous"
     Then I am on the home page
     And I should see "recipe1"
-#    When I click the link for "2"
-#    Then I should see "recipe13"
 
   Scenario: jump to another page of recipes
     Given I am on the home page

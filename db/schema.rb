@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221113185825) do
+ActiveRecord::Schema.define(version: 20221213033748) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name",                null: false
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20221113185825) do
   end
 
   add_index "ingredients", ["name"], name: "unique_ingredient", unique: true
+
+  create_table "own_recipes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipe_id"
+  end
+
+  add_index "own_recipes", ["user_id", "recipe_id"], name: "index_own_recipes_on_user_id_and_recipe_id", unique: true
 
   create_table "recipe_ingredients", force: :cascade do |t|
     t.string   "unit"
@@ -35,6 +42,14 @@ ActiveRecord::Schema.define(version: 20221113185825) do
 
   add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
   add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+
+  create_table "recipe_votes", force: :cascade do |t|
+    t.integer "upvotes",   default: 0
+    t.integer "downvotes", default: 0
+    t.integer "recipe_id"
+  end
+
+  add_index "recipe_votes", ["recipe_id"], name: "index_recipe_votes_on_recipe_id", unique: true
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name",       null: false
