@@ -207,9 +207,11 @@ Feature: display table of recipes
     When I am on the created recipe page
     And I should see "Recipes created by user7"
     Then I follow "New"
+    When I fill in the name with "dummy recipe"
+    When I fill in the steps with "dummy steps"
     Then I hit the 1st remove button
     And I press "Submit"
-    And I should see "Recipe has no Ingredient."
+    And I should see "Ingredient name or amount is empty."
 
 
   Scenario: create and display recipes of user
@@ -260,6 +262,52 @@ Feature: display table of recipes
     And I should see "ingredient1"
     But I should not see "2 steps"
     And I should not see "ingredient3"
+
+  Scenario: upvote and downvote recipes
+    Given I am on the home page
+    When  I click the link for "recipe1"
+    Then  I should be on the details page for "recipe1"
+    When I click the upvote
+    Then  I should be on the details page for "recipe1"
+    But I should see "1"
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    When I click the upvote
+    But I should see "11"
+    When I click the downvote
+    Then  I should be on the details page for "recipe1"
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    But I should see "13"
+
+  Scenario: downvote recipes
+    Given I am on the home page
+    When  I click the link for "recipe1"
+    Then  I should be on the details page for "recipe1"
+    When I click the downvote
+    Then  I should be on the details page for "recipe1"
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    When I click the downvote
+    But I should see "5"
 
   Scenario: find recipes with ingredient1
     Given I am on the home page

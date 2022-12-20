@@ -43,8 +43,18 @@ When /^(?:|I )fill in the (\d+)(?:st|nd|rd|th) Unit with "([^"]*)"$/ do |num, va
   find(:xpath, ".//form/div[2]/div[#{num}]/input[3]").set(value)
 end
 
+When /^(?:|I )fill in the name with "([^"]*)"$/ do |value|
+  find(:xpath, ".//form/p[1]//input[1]").set(value)
+end
+
+When /^(?:|I )fill in the steps with "([^"]*)"$/ do |value|
+  find(:xpath, ".//form/p[2]//textarea[1]").set(value)
+end
+
 Then("I hit the {int}st remove button") do |int|
-  driver.find_elements(:xpath, ".//form/div[2]/div[#{int}]/button[@id='delIng']").click
+  sleep 1
+  find(:xpath, ".//form/div[2]/div[#{int}]/button[@class='removeNewFormation']").click()
+  sleep 1
 end
 
 # Single-line step scoper

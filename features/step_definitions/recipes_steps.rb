@@ -31,3 +31,11 @@ When(/^I click the favorite for "([^"]*)"$/) do |name|
  id = Recipe.find_by(name: name)[:id]
  find("a[href='/recipes/#{id}'] ~ form > button").click
 end
+
+When(/^I click the upvote$/) do ||
+ find("div.upGroup button.voteButton").click
+end
+
+When(/^I click the downvote$/) do ||
+ find("div.downGroup button.voteButton").click
+end
