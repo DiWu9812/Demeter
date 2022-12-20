@@ -186,6 +186,50 @@ describe RecipesController do
         end
     end
 
+    describe "vote" do
+        it 'upvote shoud work' do
+          recipe = FactoryGirl.create(:recipe, :name => 'recipe', :id => '0', :origin_id => '0')
+          ingredient = FactoryGirl.create(:ingredient, :name => 'ingredient', :id => '0')
+          recipe_ingredient = FactoryGirl.create(:recipe_ingredient, :id => '0', :ingredient_id => '0', :recipe_id => '0')
+
+          session[:return_to] = '/recipes/page/1'
+          post :upvote, {:id => recipe.id}
+          expect(response).to redirect_to('/recipes/page/1')
+          session[:return_to] = '/recipes/page/1'
+          post :upvote, {:id => recipe.id}
+          expect(response).to redirect_to('/recipes/page/1')
+          get :show, id: recipe.id
+        end
+
+        it 'downvote should work' do
+          recipe = FactoryGirl.create(:recipe, :name => 'recipe', :id => '0', :origin_id => '0')
+          ingredient = FactoryGirl.create(:ingredient, :name => 'ingredient', :id => '0')
+          recipe_ingredient = FactoryGirl.create(:recipe_ingredient, :id => '0', :ingredient_id => '0', :recipe_id => '0')
+
+          session[:return_to] = '/recipes/page/1'
+          post :downvote, {:id => recipe.id}
+          expect(response).to redirect_to('/recipes/page/1')
+          session[:return_to] = '/recipes/page/1'
+          post :downvote, {:id => recipe.id}
+          expect(response).to redirect_to('/recipes/page/1')
+          get :show, id: recipe.id
+        end
+
+        it 'upvote and downvote should work together' do
+          recipe = FactoryGirl.create(:recipe, :name => 'recipe', :id => '0', :origin_id => '0')
+          ingredient = FactoryGirl.create(:ingredient, :name => 'ingredient', :id => '0')
+          recipe_ingredient = FactoryGirl.create(:recipe_ingredient, :id => '0', :ingredient_id => '0', :recipe_id => '0')
+
+          session[:return_to] = '/recipes/page/1'
+          post :upvote, {:id => recipe.id}
+          expect(response).to redirect_to('/recipes/page/1')
+          session[:return_to] = '/recipes/page/1'
+          post :downvote, {:id => recipe.id}
+          expect(response).to redirect_to('/recipes/page/1')
+          get :show, id: recipe.id
+        end
+    end
+
 
     describe "favorited" do
         it 'should render the have_to_login template' do
